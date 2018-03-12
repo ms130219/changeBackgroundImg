@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01-百度换肤</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            vertical-align: top;
+        }
+        body{
+            background: url("img/img1.jpg") no-repeat;
+            background-size: cover;
+        }
+        #box{
+            background-color: rgba(255,255,255,0.5);
+        }
+        ul{
+            width: 100%;
+            display: flex;
+            justify-content:space-around;
+            align-items: center;
+        }
+        ul li{
+            width: 20%;
+        }
+        ul>li img{
+            width: 100%;
+            margin:10px 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li><img src="img/img1.jpg"></li>
+        <li><img src="img/img2.jpg"></li>
+        <li><img src="img/img3.jpg"></li>
+        <li><img src="img/img4.jpg"></li>
+    </ul>
+</div>
+
+<script>
+    window.onload = function () {
+        var box = document.getElementById('box');
+        var imgList = box.getElementsByTagName('li');
+        console.log(imgList);
+        for (var i = 0; i < imgList.length; i++) {
+            imgList[i].index = i + 1;
+            imgList[i].onclick = function () {
+                document.body.style.background = 'url("img/img' + this.index + '.jpg") no-repeat';
+                document.body.style.backgroundSize='cover';
+            }
+        }
+    }
+</script>
+</body>
+</html>
